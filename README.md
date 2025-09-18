@@ -33,8 +33,8 @@ To improve runtime efficiency, sentiment hash locally s results for keywords on 
 
 
 ## Usage
-1. **Download data**  
-   - Manually place the data file into the `data/` folder.  
+1. **Requirements**  
+   - Confirm that the dataset "news_headlines_2016.csv" is in the data/ folder.
 
 2. **Run the application**
     - The application will deploy on a local server. Run app.py.
