@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>News Bias Visualizer Tool</title>
+</head>
+<body>
+<nav id="nav">
+    <div id="logo-wrapper">
+        <h2 id="logo"><a>NBV</a></h2>
+        <h2 id="logo-extended"><a>News Bias Visualizer</a></h2>
+    </div>
+    <ul id="navList">
+        <li><a href={{url_for("index")}}>About</a></li>
+        <li id="tryIt"><a href={{url_for("tool")}}>Try It</a></li>
+    </ul>
+</nav>
+<div id="pageDiv">
+    <h1>News Bias Visualizer</h1>
+    <h2>Enter a keyword to filter articles</h2>
+    <form method="POST" action="/analyze">
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword">
+        <button type="submit">Submit</button>
+    </form>
+    {% if graphJSON %}
+        <br><br><br>
+        <h2>2016 News Bias for Keyword {{ keyword }}</h2>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <div id="plot"></div>
+        <script>
+            var plot_data = {{ graphJSON|safe }};
+            Plotly.newPlot('plot', plot_data.data, plot_data.layout);
+        </script>
+    {% endif %}
+</div>
+</body>
+</html>

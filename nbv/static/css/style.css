@@ -1,0 +1,242 @@
+/* Body */
+
+body {
+    margin: 0;
+}
+html {
+	scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* Nav Bar */
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1c1c;
+    padding: 8px;
+    padding-left:5vw;
+    padding-right:5vw;
+    font-family: "Dejavu Sans", sans-serif;
+    height: 5vh;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+
+#navList {
+    display: flex;
+    position: sticky;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    min-width: 15%;
+    align-items: center;
+}
+
+
+#navList li {
+    list-style-type: none;
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    min-width: 40%;
+}
+
+#tryIt{
+    /*background-color: rgb(170, 149, 192);*/
+    background-color: rgb(71, 35, 110);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+#navList li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+#tryIt a {
+    /*color:black !important;*/
+}
+
+#tryIt:hover {
+    transform: scale(1.1);
+}
+
+#tryIt a::after{
+    display:none;
+}
+
+#logo-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-width: 50%;
+    height: 100%;
+}
+
+#logo, #logo-extended {
+    transition: opacity 150ms;
+    position: absolute; /* stacked on top of each other */
+    top: 50%;           /* start vertical center */
+    left: 0;
+    transform: translateY(-50%); /* center each logo perfectly */
+    margin: 0;
+}
+
+#logo {
+    z-index: 1;
+    opacity: 1;
+}
+
+#logo-extended {
+    z-index: 2;
+    opacity: 0;
+}
+
+#logo-wrapper:hover #logo {
+    opacity: 0;
+}
+
+#logo-wrapper:hover #logo-extended {
+    opacity: 1;
+}
+
+
+#navList li a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, rgb(71, 35, 110), #ffffff);
+    bottom: 0px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+    z-index:1;
+}
+
+#navList li a:hover::after{
+    transform: scaleX(1);
+}
+
+/* Index.html Content */
+.container{
+    width: 100vw;
+    display: flex;
+    height: 90vh;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#container1{
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1)), url(../img/squares-bg.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-blend-mode: lighten;
+}
+
+#container2{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#col1, #col2{
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.sectionHeader{
+    min-width: 40%;
+}
+
+.sectionText{
+    text-align: justify;
+}
+
+.section{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 90%;
+}
+
+#pageDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#buttonDiv{
+    height: 50px;
+    width: 70%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: clamp(2rem, 7vw, 6rem);
+}
+
+.button {
+    background-color: #f1eef4;
+    border-radius: 100px;
+    box-shadow: inset 0 -4px 6px rgba(71, 35, 110, 0.4),
+    0 2px 4px rgba(71, 35, 110, 0.3),
+    0 6px 12px rgba(71, 35, 110, 0.25),
+    0 12px 24px rgba(71, 35, 110, 0.2);
+    color: #27163a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Dejavu Sans", sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 2.2vw;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button:hover {
+    box-shadow: rgba(71, 35, 110, 0.35) 0 -15px 18px -14px inset,
+    rgba(71, 35, 110, 0.25) 0 1px 2px,
+    rgba(71, 35, 110, 0.25) 0 2px 4px,
+    rgba(71, 35, 110, 0.25) 0 4px 8px,
+    rgba(71, 35, 110, 0.25) 0 8px 16px,
+    rgba(71, 35, 110, 0.25) 0 16px 32px;
+    transform: scale(1.05);
+}
+
+

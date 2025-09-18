@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>News Bias Visualizer Home</title>
+</head>
+<body>
+<nav id="nav">
+    <div id="logo-wrapper">
+        <h2 id="logo"><a>NBV</a></h2>
+        <h2 id="logo-extended"><a>News Bias Visualizer</a></h2>
+    </div>
+    <ul id="navList">
+        <li><a href="#about">About</a></li>
+        <li id="tryIt"><a href={{url_for("tool")}}>Try It</a></li>
+    </ul>
+</nav>
+<div class="container" id="container1">
+    <h1 class="heading">Analyzing Headline Bias</h1>
+    <div id="buttonDiv">
+        <a class="button" role="button" href="#about">Learn More</a>
+        <a class="button" role="button" href={{url_for("tool")}}>Try the Tool</a>
+    </div>
+</div>
+<div class="container" id="container2">
+    <div id="col1">
+        <h1 id="about">About the NBV Tool</h1>
+    </div>
+    <div id="col2">
+        <div class="section">
+            <h2 class="sectionHeader">What does the tool do?</h2>
+            <p class="sectionText">When the user inputs a keyword, the NBV finds all news articles published in 2016 containing that keyword,
+                calculates their sentiment towards said word, and plots these scores on the graph. The result is a graph
+                displaying the degree of bias by each news source towards that word. </p>
+        </div>
+        <div class="section">
+            <h2 class="sectionHeader">Limitations</h2>
+            <p class="sectionText">Timeframe (2016): I chose 2016 because it was an impactful year in US politics and
+                I theorized a greater display of news bias (cooler results). If I continued working on this project,
+                I would increase the timeframe!<br><br>Location (USA): Simply put, I am American and I figure most users of this
+                tool will be Americans. Adding sources from other countries and languages may be a place for later
+                improvement.<br><br>Sources (New York Times, CNN, Fox, Washington Post): I chose mainstream, popular U.S.
+                news sources that are a mix of left, right, and center-leaning.</p>
+        </div>
+        <div class="section">
+        <h2 class="sectionHeader">What is the sentiment score?</h2>
+        <p class="sectionText">The NBV tool scores each word in relation to its context. It does so using NLTK SentimentIntensityAnalyzer.
+            Scores range from -1 to 1, where 1 is extreme positive sentiment, -1 is extreme negative, and 0 is neutral.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
