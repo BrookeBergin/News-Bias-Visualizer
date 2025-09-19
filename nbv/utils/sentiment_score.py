@@ -10,7 +10,7 @@ takes any 1 article
 scores the parts of the title that contain the keyword
 """
 try:
-    nltk.data.find('sentiment/vader_lexicon.zip')
+    nltk.data.find('sentiment/vader_lexicon')
 except LookupError:
     nltk.download('vader_lexicon')
 
@@ -18,7 +18,7 @@ sid = SentimentIntensityAnalyzer()
 
 def score(article, keyword):
     try:
-        nltk.data.find('sentiment/punkt_tab.zip')
+        nltk.data.find('tokenizers/punkt')
     except LookupError:
         nltk.download('punkt_tab')
 
