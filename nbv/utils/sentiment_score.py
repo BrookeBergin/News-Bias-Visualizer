@@ -17,6 +17,10 @@ except LookupError:
 sid = SentimentIntensityAnalyzer()
 
 def score(article, keyword):
+    try:
+        nltk.data.find('sentiment/punkt_tab.zip')
+    except LookupError:
+        nltk.download('punkt_tab')
 
     # tokenize headline
     article_lines = sent_tokenize(article['title'])
