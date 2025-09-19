@@ -9,6 +9,11 @@ from nltk.tokenize import wordpunct_tokenize
 takes any 1 article
 scores the parts of the title that contain the keyword
 """
+try:
+    nltk.data.find('sentiment/vader_lexicon.zip')
+except LookupError:
+    nltk.download('vader_lexicon')
+
 sid = SentimentIntensityAnalyzer()
 
 def score(article, keyword):
