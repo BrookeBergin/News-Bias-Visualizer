@@ -14,14 +14,14 @@ try:
 except LookupError:
     nltk.download('vader_lexicon')
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt_tab')
+
 sid = SentimentIntensityAnalyzer()
 
 def score(article, keyword):
-    try:
-        nltk.data.find('tokenizers/punkt')
-    except LookupError:
-        nltk.download('punkt_tab')
-
     # tokenize headline
     article_lines = sent_tokenize(article['title'])
     keyword = keyword.lower()
