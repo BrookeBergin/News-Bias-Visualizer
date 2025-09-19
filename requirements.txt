@@ -12,3 +12,4 @@ python-json-logger
 regex
 requests
 setuptools==75.8.0
+gunicorn
