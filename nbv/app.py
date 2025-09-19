@@ -13,6 +13,7 @@ from nltk.stem import PorterStemmer
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, "instance", "news.db")
+DATA_FILE = os.path.join(BASE_DIR, "data", "news_headlines_2016.csv")
 TEMPLATE_PATH = os.path.join(BASE_DIR, "nbv", "templates")
 
 app = Flask(__name__, template_folder=TEMPLATE_PATH)
@@ -35,14 +36,14 @@ def analyze():
         c = conn.cursor()
 
         # create Articles if it doesn't exist
-        exists = check_table_exists("Articles")
+        exists = check_table_exists("Articles", conn)
         if not exists:
-            init_articles()
+            init_articles(conn)
 
         # fill Articles if empty
-        full = check_table_full("Articles")
+        full = check_table_full("Articles", conn)
         if not full:
-            store_articles("../data/news_headlines_2016.csv")
+            store_articles(DATA_FILE, conn)
 
         # confirm keyword not already in hash (optimize using local storage)
         if keyword not in sentiment_hash:
