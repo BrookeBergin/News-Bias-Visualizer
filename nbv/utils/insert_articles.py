@@ -46,6 +46,7 @@ def store_articles(filename, conn=None) -> None:
 
         # insert article info into table
         # open csv file
+        print("Opening", filename)
         with open(filename, 'r', encoding='utf8', errors='replace', newline='') as csvfile:
             csv_reader = csv.reader(csvfile)
             header = next(csv_reader)
